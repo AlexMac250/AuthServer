@@ -5,7 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import xyz.artuto.authserver.interfaces.IScoreboardModule;
 import xyz.artuto.authserver.modules.ChatModule;
 import xyz.artuto.authserver.modules.DamageModule;
-import xyz.artuto.authserver.modules.JoinLeaveMessageModule;
+import xyz.artuto.authserver.modules.JoinModule;
 import xyz.artuto.authserver.modules.MovementModule;
 import xyz.artuto.authserver.modules.TabListModule;
 import xyz.artuto.authserver.v1_12_2.ScoreboardModule_v1_12_2;
@@ -41,7 +41,7 @@ public class AuthServer extends JavaPlugin
         // Group them
         {
             getLogger().info("Enabled join and leave message module");
-            plManag.registerEvents(new JoinLeaveMessageModule(this), this);
+            plManag.registerEvents(new JoinModule(this), this);
         }
 
         if(!(getConfig().getBoolean("enable_movement")))
@@ -68,7 +68,7 @@ public class AuthServer extends JavaPlugin
 
     private IScoreboardModule enableScoreboardModule()
     {
-        Pattern pattern = Pattern.compile("1.(1\\d).(\\d)?(-R0\\.1)?(-SNAPSHOT)?");
+        Pattern pattern = Pattern.compile("1.(\\d{2}).(\\d)?(-R0\\.1)?(-SNAPSHOT)?");
         Matcher matcher = pattern.matcher(getServer().getBukkitVersion());
 
         getLogger().info("Detecting your Minecraft version...");

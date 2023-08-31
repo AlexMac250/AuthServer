@@ -4,24 +4,34 @@
 #  %player% - Replaced with the player's name
 
 join_message:
-  enabled: true
+  enabled: false
   message:
     - '&aWelcome %player%!'
     - 'Login with /login'
   # Global message. Leave this empty to disable
-  global: 'Welcome back, %player%'
+  global: ''
+
+on_join_teleport:
+  enabled: false
+
+  # if empty x:0 y:0 z:0 yaw:0 pitch:0
+  x:
+  y:
+  z:
+  yaw:
+  pitch:
 
 # Global message. Leave this empty to disable
 leave_message:
   global: '%player% just left, we''ll miss them.'
 
 tablist:
-  enabled: true
+  enabled: false
   header: 'Header'
   footer: 'Footer'
 
 scoreboard:
-  enabled: true
+  enabled: false
   title: 'AuthServer'
   lines:
     - 'Login with /login'
